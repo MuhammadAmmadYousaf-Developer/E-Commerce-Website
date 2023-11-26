@@ -1,6 +1,6 @@
 const express = require("express");
 
-const app = new express();
+/*const app = new express();
 
 app.get(
     "/",
@@ -12,4 +12,19 @@ app.get(
 app.listen(
     "5000",
     ()=>console.log("Background is running")
-)
+)*/
+const express = require('express');
+const path = require('path');
+
+const app = express();
+const port = process.env.PORT || 5000;
+
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Your other routes and middleware go here...
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
